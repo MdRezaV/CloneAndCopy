@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <Authors>MH Mostmand</Authors>
+        <Description>Auto-generator of Clone method using C# Source Generator</Description>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <Nullable>enable</Nullable>
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <RepositoryUrl>https://github.com/mostmand/Cloneable</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false"/>
+        <None Update="tools\*.ps1" CopyToOutputDirectory="Always" Pack="true" PackagePath="tools\%(Filename)%(Extension)"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="3.8.0" PrivateAssets="all"/>
+        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.0" PrivateAssets="all"/>
+    </ItemGroup>
+</Project>
